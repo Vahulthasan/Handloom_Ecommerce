@@ -10,5 +10,14 @@ export const isSupabaseConfigured = Boolean(
 );
 
 export const supabase = isSupabaseConfigured
-  ? createClient(supabaseUrl!, supabaseAnonKey!)
+  ? createClient(supabaseUrl!, supabaseAnonKey!, {
+      global: {
+        fetch: (url, options = {}) =>
+          fetch(url, {
+            ...options,
+            cache: 'force-cache',
+            next: { revalidate: 60 },
+          }),
+      },
+    })
   : null;

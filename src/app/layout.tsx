@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { Bricolage_Grotesque, Figtree } from 'next/font/google';
 import './globals.css';
 import { CartProvider } from '@/context/CartContext';
 import { ThemeProvider } from '@/context/ThemeContext';
@@ -7,18 +6,6 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CartDrawer from '@/components/CartDrawer';
 import ToastNotification from '@/components/ToastNotification';
-
-const bricolage = Bricolage_Grotesque({
-  subsets: ['latin'],
-  variable: '--font-heading',
-  display: 'swap',
-});
-
-const figtree = Figtree({
-  subsets: ['latin'],
-  variable: '--font-body',
-  display: 'swap',
-});
 
 export const metadata: Metadata = {
   title: 'Vintage Collections | Handwoven Bamboo Pendant Lamp Shades | Direct Exporter to Europe',
@@ -41,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${bricolage.variable} ${figtree.variable}`}>
+    <html lang="en">
       <body className="min-h-screen flex flex-col selection:bg-[#c68a24] selection:text-white">
         <ThemeProvider>
           <CartProvider>

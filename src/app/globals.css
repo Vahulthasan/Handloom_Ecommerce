@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --brand-forest: #173f34;
+    --brand-forest-dark: #0f2b23;
+    --brand-forest-light: #23594b;
+    --brand-amber: #c68a24;
+    --brand-amber-light: #e2a53d;
+    --brand-amber-dark: #9e6d1b;
+    --bg-page: #e8ece8;
+    --bg-card: #ffffff;
+    --hero-dark: #0d1512;
+    --text-primary: #192621;
+    --text-muted: #576861;
+    --border-color: #d2dbd4;
+  }
+
+  .dark {
+    --brand-forest: #23594b;
+    --brand-forest-dark: #14352c;
+    --brand-forest-light: #327a67;
+    --brand-amber: #e2a53d;
+    --brand-amber-light: #f5bc5c;
+    --brand-amber-dark: #b37d22;
+    --bg-page: #0f1613;
+    --bg-card: #17241f;
+    --hero-dark: #070c0a;
+    --text-primary: #f1f5f2;
+    --text-muted: #9bb0a5;
+    --border-color: #273b33;
+  }
+
+  body {
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading), system-ui, -apple-system, sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Amazon-Style Focus Rings */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid var(--brand-amber);
+  outline-offset: 2px;
+}
+
+/* Subtle hanging lamp swaying animation */
+@keyframes swaySlow {
+  0% {
+    transform: rotate(-1.8deg) translateY(0);
+  }
+  50% {
+    transform: rotate(2deg) translateY(-2px);
+  }
+  100% {
+    transform: rotate(-1.8deg) translateY(0);
+  }
+}
+
+@keyframes swayOpposite {
+  0% {
+    transform: rotate(1.5deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-1.7deg) translateY(-1px);
+  }
+  100% {
+    transform: rotate(1.5deg) translateY(0);
+  }
+}
+
+@keyframes amberPulse {
+  0%, 100% {
+    opacity: 0.85;
+    filter: drop-shadow(0 0 35px rgba(198, 138, 36, 0.45));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 55px rgba(226, 165, 61, 0.7));
+  }
+}
+
+.animate-sway-slow {
+  transform-origin: top center;
+  animation: swaySlow 7s ease-in-out infinite;
+}
+
+.animate-sway-alt {
+  transform-origin: top center;
+  animation: swayOpposite 8.5s ease-in-out infinite;
+}
+
+.animate-amber-glow {
+  animation: amberPulse 4s ease-in-out infinite;
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-sway-slow,
+  .animate-sway-alt,
+  .animate-amber-glow {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* Amazon-Style Product Card Card Hover Transition */
+.product-card-hover {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+}
+
+.product-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px -6px rgba(23, 63, 52, 0.16);
+  border-color: var(--brand-forest);
+}
+
+.dark .product-card-hover:hover {
+  box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.5);
+  border-color: var(--brand-amber);
+}

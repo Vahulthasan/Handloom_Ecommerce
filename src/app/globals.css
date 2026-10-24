@@ -114,6 +114,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 /* Forms: Inputs minimum 44px tall with 16px font so iOS doesn't zoom (Sections 8 & 9) */
 input[type="text"],
+input[type="password"],
 input[type="email"],
 input[type="tel"],
 input[type="number"],
@@ -207,12 +208,141 @@ textarea {
   animation: amberPulse 4s ease-in-out infinite;
 }
 
+/* Mascot Animation Keyframes & Classes */
+@keyframes mascotFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes mascotBlink {
+  0%, 94%, 100% {
+    transform: scaleY(1);
+  }
+  97% {
+    transform: scaleY(0.08);
+  }
+}
+
+@keyframes headShake {
+  0%, 100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  15% {
+    transform: translateX(-7px) rotate(-5deg);
+  }
+  30% {
+    transform: translateX(6px) rotate(4deg);
+  }
+  45% {
+    transform: translateX(-4px) rotate(-3deg);
+  }
+  60% {
+    transform: translateX(4px) rotate(2deg);
+  }
+  75% {
+    transform: translateX(-2px) rotate(-1deg);
+  }
+}
+
+@keyframes cardShake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  15% {
+    transform: translateX(-8px);
+  }
+  30% {
+    transform: translateX(8px);
+  }
+  45% {
+    transform: translateX(-5px);
+  }
+  60% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-2px);
+  }
+}
+
+@keyframes mascotBounce {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  30% {
+    transform: translateY(-14px) scale(1.05, 0.95);
+  }
+  50% {
+    transform: translateY(0) scale(0.96, 1.04);
+  }
+  70% {
+    transform: translateY(-6px) scale(1.02);
+  }
+  85% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes sparklePop {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.15) rotate(90deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5) translateY(-16px) rotate(180deg);
+  }
+}
+
+.animate-mascot-float {
+  animation: mascotFloat 4.2s ease-in-out infinite;
+}
+
+.animate-mascot-blink {
+  transform-origin: 100px 100px;
+  animation: mascotBlink 4.5s ease-in-out infinite;
+}
+
+.animate-head-shake {
+  transform-origin: 100px 140px;
+  animation: headShake 0.65s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.animate-card-shake {
+  animation: cardShake 0.65s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.animate-mascot-bounce {
+  transform-origin: 100px 150px;
+  animation: mascotBounce 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.animate-sparkle {
+  animation: sparklePop 1.4s ease-out forwards;
+}
+
 /* Respect prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   .animate-sway-slow,
   .animate-sway-alt,
-  .animate-amber-glow {
+  .animate-amber-glow,
+  .animate-mascot-float,
+  .animate-mascot-blink,
+  .animate-head-shake,
+  .animate-card-shake,
+  .animate-mascot-bounce,
+  .animate-sparkle {
     animation: none !important;
     transform: none !important;
+    transition: none !important;
   }
 }
+

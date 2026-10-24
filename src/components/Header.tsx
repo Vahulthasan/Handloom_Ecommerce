@@ -20,6 +20,7 @@ import {
   Sparkles,
   Info,
   ExternalLink,
+  User,
 } from 'lucide-react';
 
 export default function Header() {
@@ -188,6 +189,16 @@ export default function Header() {
 
               {/* Right Action Cluster */}
               <div className="flex items-center gap-1.5 sm:gap-3 flex-shrink-0">
+                {/* Sign In / Account (768px+) */}
+                <Link
+                  href="/login"
+                  className="hidden md:flex items-center gap-1.5 px-2.5 py-1.5 rounded hover:ring-1 hover:ring-[#c68a24] text-xs leading-tight transition-all font-medium text-gray-200 hover:text-white"
+                  title="Sign In or Register"
+                >
+                  <User className="w-4 h-4 text-[#e5a439] flex-shrink-0" />
+                  <span>Sign In</span>
+                </Link>
+
                 {/* Track Orders (icon + text on 768px+, hidden on mobile where it lives in hamburger menu per spec) */}
                 <Link
                   href="/track"
@@ -388,21 +399,32 @@ export default function Header() {
                 </div>
               </div>
 
-              {/* Track Orders Link (Inside Hamburger per Spec) */}
-              <div className="p-4 space-y-1">
-                <div className="text-[10px] uppercase font-bold text-gray-400 tracking-wider mb-2">
-                  Order Management
+              {/* Account & Track Orders (Inside Hamburger per Spec) */}
+              <div className="p-4 space-y-2">
+                <div className="text-[10px] uppercase font-bold text-gray-400 tracking-wider mb-1">
+                  Account &amp; Orders
                 </div>
+                <Link
+                  href="/login"
+                  onClick={() => setMobileDrawerOpen(false)}
+                  className="flex items-center justify-between py-2.5 px-3 rounded-lg bg-[#183d31] hover:bg-[#204e3f] text-white font-semibold transition-colors"
+                >
+                  <span className="flex items-center gap-2.5">
+                    <User className="w-4 h-4 text-[#e5a439]" />
+                    <span>Sign In / Create Account</span>
+                  </span>
+                  <ChevronRight className="w-4 h-4 text-[#e5a439]" />
+                </Link>
                 <Link
                   href="/track"
                   onClick={() => setMobileDrawerOpen(false)}
-                  className="flex items-center justify-between py-3 px-3 rounded-lg bg-[#183d31] hover:bg-[#204e3f] text-white font-semibold transition-colors"
+                  className="flex items-center justify-between py-2.5 px-3 rounded-lg bg-[#122e25] hover:bg-[#1a4034] text-gray-100 font-medium transition-colors"
                 >
                   <span className="flex items-center gap-2.5">
                     <PackageCheck className="w-4 h-4 text-[#e5a439]" />
                     <span>Track Orders &amp; Container Status</span>
                   </span>
-                  <ChevronRight className="w-4 h-4 text-[#e5a439]" />
+                  <ChevronRight className="w-4 h-4 text-gray-400" />
                 </Link>
               </div>
 

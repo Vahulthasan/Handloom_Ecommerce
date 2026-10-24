@@ -34,11 +34,27 @@
     --border-color: #273b33;
   }
 
+  html {
+    max-width: 100vw;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    box-sizing: border-box;
+  }
+
   body {
     background-color: var(--bg-page);
     color: var(--text-primary);
     font-family: var(--font-body), system-ui, -apple-system, sans-serif;
     transition: background-color 0.25s ease, color 0.25s ease;
+    max-width: 100vw;
+    overflow-x: hidden;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -47,10 +63,32 @@
   }
 }
 
+/* Hide scrollbar for Amazon-style mobile touch category & filter ribbons */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Amazon-Style Focus Rings */
 a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
   outline: 2px solid var(--brand-amber);
   outline-offset: 2px;
+}
+
+/* Prevent unwanted iOS auto-zoom on input focus */
+@media (max-width: 640px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="search"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
 }
 
 /* Subtle hanging lamp swaying animation */

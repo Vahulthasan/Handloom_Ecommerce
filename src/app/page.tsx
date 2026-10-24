@@ -82,14 +82,14 @@ export default async function HomePage() {
           </div>
 
           {/* Hero Right Visuals: Swaying Bamboo Hanging Shades */}
-          <div className="lg:col-span-5 relative flex items-center justify-center">
-            <div className="relative w-full max-w-md h-[400px] flex items-center justify-center">
+          <div className="lg:col-span-5 relative flex items-center justify-center w-full overflow-hidden sm:overflow-visible">
+            <div className="relative w-full max-w-md h-[320px] sm:h-[400px] flex items-center justify-center">
               
               {/* Swaying Shade 1 (Round Dome) */}
-              <div className="absolute top-0 left-4 w-52 h-64 animate-sway-slow z-20">
+              <div className="absolute top-0 left-2 sm:left-4 w-36 h-48 sm:w-52 sm:h-64 animate-sway-slow z-20">
                 {/* Vintage hanging cord */}
-                <div className="w-1 h-12 bg-gradient-to-b from-[#241a10] to-[#593d22] mx-auto rounded-full" />
-                <div className="relative w-48 h-48 rounded-full overflow-hidden shadow-2xl border border-amber-600/30">
+                <div className="w-1 h-8 sm:h-12 bg-gradient-to-b from-[#241a10] to-[#593d22] mx-auto rounded-full" />
+                <div className="relative w-32 h-32 sm:w-48 sm:h-48 rounded-full overflow-hidden shadow-2xl border border-amber-600/30">
                   <Image
                     src="/images/round-shade.jpg"
                     alt="Round Handwoven Bamboo Pendant Shade hanging with warm ambient light"
@@ -102,10 +102,10 @@ export default async function HomePage() {
               </div>
 
               {/* Swaying Shade 2 (Four-Point Star) */}
-              <div className="absolute top-8 right-2 w-56 h-72 animate-sway-alt z-10">
+              <div className="absolute top-6 sm:top-8 right-2 w-40 h-52 sm:w-56 sm:h-72 animate-sway-alt z-10">
                 {/* Vintage hanging cord */}
-                <div className="w-1 h-16 bg-gradient-to-b from-[#241a10] to-[#593d22] mx-auto rounded-full" />
-                <div className="relative w-52 h-52 rounded-2xl overflow-hidden shadow-2xl border border-amber-500/20">
+                <div className="w-1 h-10 sm:h-16 bg-gradient-to-b from-[#241a10] to-[#593d22] mx-auto rounded-full" />
+                <div className="relative w-36 h-36 sm:w-52 sm:h-52 rounded-2xl overflow-hidden shadow-2xl border border-amber-500/20">
                   <Image
                     src="/images/four-point-shade.jpg"
                     alt="Four-Point Geometric Bamboo Lamp Shade casting intricate geometric shadows"
@@ -118,9 +118,9 @@ export default async function HomePage() {
               </div>
 
               {/* Floating Artisan Scale Pill */}
-              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 z-30 bg-[#173f34]/95 backdrop-blur-md border border-[#2d735f] px-4 py-2 rounded-full shadow-xl flex items-center gap-2 text-xs text-white whitespace-nowrap">
-                <HeartHandshake className="w-4 h-4 text-[#e5a439]" />
-                <span>Generational Bamboo Split Craft from India</span>
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-30 bg-[#173f34]/95 backdrop-blur-md border border-[#2d735f] px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-xl flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-white max-w-[92%] truncate">
+                <HeartHandshake className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#e5a439] flex-shrink-0" />
+                <span className="truncate">Generational Bamboo Split Craft from India</span>
               </div>
             </div>
           </div>
@@ -252,7 +252,7 @@ export default async function HomePage() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-6">
           {bestSellers.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

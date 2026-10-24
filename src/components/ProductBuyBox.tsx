@@ -205,6 +205,35 @@ export default function ProductBuyBox({ product, openContainer }: ProductBuyBoxP
           <strong>European Sea Freight Transparency:</strong> Unlike retail stores storing old stock in warehouses, our shades are woven to order by Indian master artisans and consolidated into ocean containers.
         </div>
       </div>
+
+      {/* Amazon Mobile Sticky Quick Buy Bar (Thumb Friendly) */}
+      <div className="lg:hidden fixed bottom-14 left-0 right-0 z-30 bg-white/95 dark:bg-[#12231c]/95 backdrop-blur-md border-t border-gray-200 dark:border-[#234336] p-2.5 px-4 shadow-lg flex items-center justify-between gap-3">
+        <div className="flex flex-col leading-tight min-w-0">
+          <span className="text-[10px] text-gray-500 uppercase tracking-wide truncate">{product.shape}</span>
+          <span className="font-heading font-black text-lg text-[#173f34] dark:text-[#e5a439]">
+            €{(product.price_eur * quantity).toFixed(2)}
+          </span>
+        </div>
+
+        <div className="flex items-center gap-2 flex-shrink-0">
+          <button
+            type="button"
+            onClick={handleAddToCart}
+            disabled={isAdding}
+            className="py-2.5 px-3.5 rounded-md font-bold text-xs bg-[#c68a24] hover:bg-[#e5a439] active:bg-[#b0781c] text-[#0d1512] shadow transition-all flex items-center gap-1.5"
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>{isAdding ? 'Adding...' : 'Add to Cart'}</span>
+          </button>
+          <button
+            type="button"
+            onClick={handleBuyNow}
+            className="py-2.5 px-3.5 rounded-md font-bold text-xs bg-[#173f34] text-white shadow hover:bg-[#1f4f42] active:bg-[#122b22] transition-colors"
+          >
+            Buy Now
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

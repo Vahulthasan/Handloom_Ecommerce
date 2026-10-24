@@ -75,29 +75,29 @@ export default function ProductCard({ product }: { product: Product }) {
       </Link>
 
       {/* Content Area */}
-      <div className="flex-1 p-4 flex flex-col justify-between">
+      <div className="flex-1 p-3 sm:p-4 flex flex-col justify-between">
         <div>
           {/* Shape & Size Pill */}
-          <div className="flex items-center gap-2 text-[11px] text-[#576861] dark:text-[#9bb0a5] mb-1.5">
+          <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] text-[#576861] dark:text-[#9bb0a5] mb-1 truncate">
             <span className="font-semibold">{product.shape}</span>
             <span>•</span>
-            <span className="italic">{product.size_approx}</span>
+            <span className="italic truncate">{product.size_approx}</span>
           </div>
 
           {/* Title */}
           <Link href={`/product/${product.slug}`} className="block group-hover:text-[#c68a24] transition-colors">
-            <h3 className="font-heading font-bold text-sm text-gray-900 dark:text-white line-clamp-2 leading-snug">
+            <h3 className="font-heading font-bold text-xs sm:text-sm text-gray-900 dark:text-white line-clamp-2 leading-snug">
               {product.name}
             </h3>
           </Link>
 
           {/* Star Ratings Summary (Amazon-Style) */}
-          <div className="flex items-center gap-1.5 mt-2">
+          <div className="flex items-center gap-1 sm:gap-1.5 mt-1.5 flex-wrap">
             <div className="flex text-[#c68a24]">
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
-                  className={`w-3.5 h-3.5 ${
+                  className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${
                     i < Math.floor(product.rating)
                       ? 'fill-[#c68a24] text-[#c68a24]'
                       : 'text-gray-300 dark:text-gray-600'
@@ -105,50 +105,50 @@ export default function ProductCard({ product }: { product: Product }) {
                 />
               ))}
             </div>
-            <span className="text-xs font-bold text-gray-800 dark:text-gray-200">
+            <span className="text-[11px] sm:text-xs font-bold text-gray-800 dark:text-gray-200">
               {product.rating}
             </span>
-            <span className="text-[11px] text-gray-500 dark:text-gray-400">
+            <span className="text-[10px] sm:text-[11px] text-gray-500 dark:text-gray-400">
               ({product.review_count})
             </span>
           </div>
 
           {/* Price */}
-          <div className="mt-3 flex items-baseline gap-1.5">
+          <div className="mt-2 sm:mt-3 flex items-baseline gap-1">
             <span className="text-xs font-semibold text-gray-700 dark:text-gray-300">€</span>
-            <span className="font-heading font-extrabold text-xl text-[#173f34] dark:text-[#e5a439]">
+            <span className="font-heading font-extrabold text-base sm:text-xl text-[#173f34] dark:text-[#e5a439]">
               {product.price_eur.toFixed(2)}
             </span>
-            <span className="text-[10px] text-gray-500 ml-1">
-              (VAT/customs to be confirmed)
+            <span className="text-[9px] sm:text-[10px] text-gray-500 ml-0.5 hidden xs:inline">
+              EUR
             </span>
           </div>
 
           {/* Stock / Container Notice */}
-          <p className="mt-1.5 text-[11px] text-emerald-700 dark:text-emerald-400 font-medium flex items-center gap-1">
-            <span>In Stock ({product.stock} available in India)</span>
+          <p className="mt-1 text-[10px] sm:text-[11px] text-emerald-700 dark:text-emerald-400 font-medium truncate flex items-center gap-1">
+            <span>In Stock ({product.stock} in India)</span>
           </p>
         </div>
 
-        {/* Quick Add To Cart Button */}
-        <div className="mt-4 pt-3 border-t border-gray-100 dark:border-gray-800">
+        {/* Quick Add To Cart Button - Touch Friendly */}
+        <div className="mt-3 pt-2.5 sm:mt-4 sm:pt-3 border-t border-gray-100 dark:border-gray-800">
           <button
             onClick={handleQuickAdd}
-            className={`w-full py-2 px-3 rounded text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-sm ${
+            className={`w-full py-2 sm:py-2.5 px-2.5 rounded text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-sm active:scale-95 ${
               addedRecently
                 ? 'bg-emerald-600 text-white'
-                : 'bg-[#c68a24] hover:bg-[#e5a439] text-[#0d1512]'
+                : 'bg-[#c68a24] hover:bg-[#e5a439] active:bg-[#b0781c] text-[#0d1512]'
             }`}
           >
             {addedRecently ? (
               <>
-                <Check className="w-4 h-4" />
-                <span>Added to Container!</span>
+                <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
+                <span className="truncate">Added to Cart!</span>
               </>
             ) : (
               <>
-                <ShoppingCart className="w-3.5 h-3.5" />
-                <span>Add to Cart</span>
+                <ShoppingCart className="w-3.5 h-3.5 flex-shrink-0" />
+                <span className="truncate">Add to Cart</span>
               </>
             )}
           </button>

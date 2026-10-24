@@ -28,8 +28,8 @@ export default function CartDrawer() {
         aria-hidden="true"
       />
 
-      <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
-        <div className="w-screen max-w-md bg-white dark:bg-[#16221d] text-gray-900 dark:text-gray-100 shadow-2xl flex flex-col">
+      <div className="fixed inset-y-0 right-0 max-w-full flex pl-0 sm:pl-10">
+        <div className="w-full sm:w-[420px] max-w-full bg-white dark:bg-[#16221d] text-gray-900 dark:text-gray-100 shadow-2xl flex flex-col">
           
           {/* Drawer Header */}
           <div className="px-6 py-5 bg-[#173f34] text-white flex items-center justify-between">

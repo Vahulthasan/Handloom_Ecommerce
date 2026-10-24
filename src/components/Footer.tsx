@@ -130,31 +130,31 @@ export default function Footer() {
         </div>
 
         {/* Bottom copyright & government approval trust badges */}
-        <div className="mt-12 pt-8 border-t border-[#1a2d24] flex flex-col md:flex-row items-center justify-between text-xs text-gray-500 gap-4">
-          <div className="flex items-center gap-3">
+        <div className="mt-12 pt-8 border-t border-[#1a2d24] flex flex-col md:flex-row items-center justify-between text-xs text-gray-500 gap-4 text-center md:text-left">
+          <div className="flex flex-col sm:flex-row items-center gap-3">
             <div className="flex items-center gap-2 bg-[#122b22] px-2.5 py-1 rounded border border-[#235345]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/gov/Seal_of_Tamil_Nadu.webp"
                 alt="Government of Tamil Nadu"
-                className="h-6 w-auto object-contain"
+                className="h-5 sm:h-6 w-auto object-contain"
               />
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/gov/india_centralGov_logo.webp"
                 alt="Government of India"
-                className="h-6 w-auto object-contain"
+                className="h-5 sm:h-6 w-auto object-contain"
               />
               <span className="text-[10px] text-gray-300 font-medium">
-                Approved Handloom Exporter • Govt. of Tamil Nadu &amp; Govt. of India
+                Govt. of Tamil Nadu &amp; India Approved
               </span>
             </div>
-            <p className="text-[11px]">© 2026 Vintage Collections. IEC: IND-EXP-48201.</p>
+            <p className="text-[11px] text-gray-400">© 2026 Vintage Collections. IEC: IND-EXP-48201.</p>
           </div>
-          <div className="flex items-center gap-4 text-xs text-gray-400">
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-2 sm:gap-4 text-xs text-gray-400">
             <span>Prices in EUR (€)</span>
             <span>•</span>
-            <span>EU CE Fitting Compatible</span>
+            <span>EU CE Fitting</span>
             <span>•</span>
             <span className="text-[#c68a24]">Sample Demonstration Store</span>
           </div>

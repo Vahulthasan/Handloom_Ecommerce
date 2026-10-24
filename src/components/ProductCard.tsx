@@ -27,34 +27,34 @@ export default function ProductCard({ product }: { product: Product }) {
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="product-card-hover group relative flex flex-col bg-white dark:bg-[#16221d] rounded-lg border border-[#d2dbd4] dark:border-[#273b33] overflow-hidden transition-all duration-200"
+      className="product-card-hover group relative flex flex-col h-full bg-white dark:bg-[#16221d] rounded-lg border border-[#d2dbd4] dark:border-[#273b33] overflow-hidden transition-all duration-200"
     >
-      {/* Product Tag / Amazon Badge */}
+      {/* Product Tag Badge - Section 6: smaller font, max-width 65%, ellipsis, never overlapping */}
       {product.tag && (
-        <div className="absolute top-2.5 left-2.5 z-10">
-          <span className="inline-flex items-center gap-1 bg-[#173f34] text-[#e5a439] text-[10px] font-bold px-2 py-0.5 rounded shadow-sm">
-            <Sparkles className="w-3 h-3 text-[#c68a24]" />
-            {product.tag}
+        <div className="absolute top-2.5 left-2.5 z-10 max-w-[65%] pointer-events-none">
+          <span className="inline-flex items-center gap-1 bg-[#173f34] text-[#e5a439] text-[10px] font-bold px-2 py-0.5 rounded shadow-sm max-w-full">
+            <Sparkles className="w-3 h-3 text-[#c68a24] flex-shrink-0" />
+            <span className="truncate">{product.tag}</span>
           </span>
         </div>
       )}
 
-      {/* Container Slot Badge */}
-      <div className="absolute top-2.5 right-2.5 z-10">
-        <span className="inline-flex items-center gap-1 bg-black/60 backdrop-blur-md text-white text-[10px] px-1.5 py-0.5 rounded">
-          <Ship className="w-3 h-3 text-[#c68a24]" />
-          <span>{product.units_per_container_slot} slot{product.units_per_container_slot !== 1 ? 's' : ''}</span>
+      {/* Container Slot Badge - Section 6: max-width 30%, ellipsis, never overlapping */}
+      <div className="absolute top-2.5 right-2.5 z-10 max-w-[30%] pointer-events-none">
+        <span className="inline-flex items-center gap-1 bg-black/60 backdrop-blur-md text-white text-[10px] px-1.5 py-0.5 rounded max-w-full">
+          <Ship className="w-3 h-3 text-[#c68a24] flex-shrink-0" />
+          <span className="truncate">{product.units_per_container_slot} slot{product.units_per_container_slot !== 1 ? 's' : ''}</span>
         </span>
       </div>
 
-      {/* Image Area with Second-Angle Cross-fade */}
-      <Link href={`/product/${product.slug}`} className="block relative w-full aspect-square bg-[#f5f7f5] dark:bg-[#111915] overflow-hidden">
+      {/* Image Area - Section 6: aspect-ratio: 1 / 1; object-fit: cover */}
+      <Link href={`/product/${product.slug}`} className="block relative w-full aspect-square bg-[#f5f7f5] dark:bg-[#111915] overflow-hidden flex-shrink-0">
         {/* Primary Image */}
         <Image
           src={primaryImage}
           alt={product.name}
           fill
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
           className={`object-cover transition-opacity duration-300 ease-in-out ${
             isHovered && secondaryImage ? 'opacity-0' : 'opacity-100'
           }`}
@@ -66,7 +66,7 @@ export default function ProductCard({ product }: { product: Product }) {
             src={secondaryImage}
             alt={`${product.name} - second angle`}
             fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
             className={`object-cover transition-opacity duration-300 ease-in-out absolute inset-0 ${
               isHovered ? 'opacity-100 scale-105 transition-transform duration-500' : 'opacity-0'
             }`}
@@ -74,26 +74,26 @@ export default function ProductCard({ product }: { product: Product }) {
         )}
       </Link>
 
-      {/* Content Area */}
-      <div className="flex-1 p-3 sm:p-4 flex flex-col justify-between">
+      {/* Content Area: flex-1 flex-col with equal height & mt-auto pinned button */}
+      <div className="flex-1 p-3 sm:p-4 flex flex-col justify-between min-w-0">
         <div>
           {/* Shape & Size Pill */}
-          <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] text-[#576861] dark:text-[#9bb0a5] mb-1 truncate">
-            <span className="font-semibold">{product.shape}</span>
+          <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] text-[#576861] dark:text-[#9bb0a5] mb-1 truncate min-w-0">
+            <span className="font-semibold flex-shrink-0">{product.shape}</span>
             <span>•</span>
             <span className="italic truncate">{product.size_approx}</span>
           </div>
 
-          {/* Title */}
-          <Link href={`/product/${product.slug}`} className="block group-hover:text-[#c68a24] transition-colors">
+          {/* Title: 2-line clamp (Section 6) */}
+          <Link href={`/product/${product.slug}`} className="block group-hover:text-[#c68a24] transition-colors min-w-0">
             <h3 className="font-heading font-bold text-xs sm:text-sm text-gray-900 dark:text-white line-clamp-2 leading-snug">
               {product.name}
             </h3>
           </Link>
 
-          {/* Star Ratings Summary (Amazon-Style) */}
+          {/* Star Ratings Summary */}
           <div className="flex items-center gap-1 sm:gap-1.5 mt-1.5 flex-wrap">
-            <div className="flex text-[#c68a24]">
+            <div className="flex text-[#c68a24] flex-shrink-0">
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
@@ -130,11 +130,11 @@ export default function ProductCard({ product }: { product: Product }) {
           </p>
         </div>
 
-        {/* Quick Add To Cart Button - Touch Friendly */}
-        <div className="mt-3 pt-2.5 sm:mt-4 sm:pt-3 border-t border-gray-100 dark:border-gray-800">
+        {/* Quick Add To Cart Button - Section 6: full width of the card, minimum 44px tall, pinned to bottom with margin-top: auto */}
+        <div className="mt-auto pt-3 border-t border-gray-100 dark:border-gray-800 w-full">
           <button
             onClick={handleQuickAdd}
-            className={`w-full py-2 sm:py-2.5 px-2.5 rounded text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-sm active:scale-95 ${
+            className={`w-full min-h-[44px] h-11 px-3 rounded text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-sm active:scale-[0.98] ${
               addedRecently
                 ? 'bg-emerald-600 text-white'
                 : 'bg-[#c68a24] hover:bg-[#e5a439] active:bg-[#b0781c] text-[#0d1512]'
@@ -142,12 +142,12 @@ export default function ProductCard({ product }: { product: Product }) {
           >
             {addedRecently ? (
               <>
-                <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
+                <Check className="w-4 h-4 flex-shrink-0" />
                 <span className="truncate">Added to Cart!</span>
               </>
             ) : (
               <>
-                <ShoppingCart className="w-3.5 h-3.5 flex-shrink-0" />
+                <ShoppingCart className="w-4 h-4 flex-shrink-0" />
                 <span className="truncate">Add to Cart</span>
               </>
             )}

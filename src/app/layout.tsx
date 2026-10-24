@@ -54,8 +54,8 @@ export default function RootLayout({
             {/* Global Toast Notification */}
             <ToastNotification />
 
-            {/* Main Content Viewport */}
-            <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 pb-20 md:pb-8 overflow-hidden">
+            {/* Main Content Viewport - Fluid Centered Container (width: min(100% - 2rem, 1280px); margin-inline: auto;) */}
+            <main className="flex-1 w-[min(100%-2rem,1280px)] mx-auto py-4 sm:py-6 pb-20 md:pb-8 min-w-0">
               {children}
             </main>
 

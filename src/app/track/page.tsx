@@ -118,8 +118,8 @@ function TrackOrderContent() {
 
       {/* Lookup Card */}
       <div className="bg-white dark:bg-[#16221d] rounded-xl border border-gray-200 dark:border-gray-800 p-6 shadow-sm">
-        <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-end">
-          <div className="sm:col-span-5">
+        <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
+          <div className="md:col-span-5">
             <label className="text-xs font-bold text-gray-700 dark:text-gray-300 block mb-1">
               Order Number (e.g. VC-EU-89241)
             </label>
@@ -129,11 +129,11 @@ function TrackOrderContent() {
               value={orderNumber}
               onChange={(e) => setOrderNumber(e.target.value)}
               placeholder="VC-EU-89241"
-              className="w-full px-3 py-2 text-xs rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#121c17] outline-none font-mono focus:ring-1 focus:ring-[#c68a24]"
+              className="w-full min-h-[44px] h-11 px-3 py-2 text-sm rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#121c17] outline-none font-mono focus:ring-1 focus:ring-[#c68a24]"
             />
           </div>
 
-          <div className="sm:col-span-5">
+          <div className="md:col-span-5">
             <label className="text-xs font-bold text-gray-700 dark:text-gray-300 block mb-1">
               Email Address
             </label>
@@ -143,15 +143,15 @@ function TrackOrderContent() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="e.g. hannah.schmidt@berlin-design.de"
-              className="w-full px-3 py-2 text-xs rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#121c17] outline-none focus:ring-1 focus:ring-[#c68a24]"
+              className="w-full min-h-[44px] h-11 px-3 py-2 text-sm rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#121c17] outline-none focus:ring-1 focus:ring-[#c68a24]"
             />
           </div>
 
-          <div className="sm:col-span-2">
+          <div className="md:col-span-2">
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-2.5 px-4 bg-[#173f34] hover:bg-[#1f4f42] text-white text-xs font-bold rounded shadow transition-colors flex items-center justify-center gap-1.5"
+              className="w-full min-h-[44px] h-11 py-2.5 px-4 bg-[#173f34] hover:bg-[#1f4f42] text-white text-xs font-bold rounded shadow transition-colors flex items-center justify-center gap-1.5"
             >
               <Search className="w-3.5 h-3.5 text-[#e5a439]" />
               <span>{loading ? 'Finding...' : 'Track'}</span>

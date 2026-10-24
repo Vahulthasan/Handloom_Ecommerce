@@ -231,7 +231,7 @@ export default function CheckoutPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="e.g. hannah.schmidt@berlin-design.de"
-                  className="w-full px-3 py-2 text-xs rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#121c17] outline-none focus:ring-1 focus:ring-[#c68a24]"
+                  className="w-full min-h-[44px] h-11 px-3 py-2 text-sm rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#121c17] outline-none focus:ring-1 focus:ring-[#c68a24]"
                 />
               </div>
             </div>
@@ -251,7 +251,7 @@ export default function CheckoutPage() {
                 <select
                   value={countryCode}
                   onChange={(e) => setCountryCode(e.target.value)}
-                  className="w-full px-3 py-2 text-xs rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#121c17] font-medium outline-none focus:ring-1 focus:ring-[#c68a24]"
+                  className="w-full min-h-[44px] h-11 px-3 py-2 text-sm rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#121c17] font-medium outline-none focus:ring-1 focus:ring-[#c68a24]"
                 >
                   {settings?.allowed_countries.map((c) => (
                     <option key={c.code} value={c.code}>
@@ -261,7 +261,8 @@ export default function CheckoutPage() {
                 </select>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              {/* Names: Single column on mobile, 2 columns from 768px (Section 8) */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="text-xs font-semibold text-gray-700 dark:text-gray-300 block mb-1">
                     First Name *
@@ -272,7 +273,7 @@ export default function CheckoutPage() {
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
                     placeholder="Hannah"
-                    className="w-full px-3 py-2 text-xs rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#121c17] outline-none"
+                    className="w-full min-h-[44px] h-11 px-3 py-2 text-sm rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#121c17] outline-none"
                   />
                 </div>
                 <div>
@@ -285,7 +286,7 @@ export default function CheckoutPage() {
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
                     placeholder="Schmidt"
-                    className="w-full px-3 py-2 text-xs rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#121c17] outline-none"
+                    className="w-full min-h-[44px] h-11 px-3 py-2 text-sm rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#121c17] outline-none"
                   />
                 </div>
               </div>
@@ -299,7 +300,7 @@ export default function CheckoutPage() {
                   value={companyName}
                   onChange={(e) => setCompanyName(e.target.value)}
                   placeholder="Studio or Architectural Practice"
-                  className="w-full px-3 py-2 text-xs rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#121c17] outline-none"
+                  className="w-full min-h-[44px] h-11 px-3 py-2 text-sm rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#121c17] outline-none"
                 />
               </div>
 
@@ -313,11 +314,12 @@ export default function CheckoutPage() {
                   value={streetAddress}
                   onChange={(e) => setStreetAddress(e.target.value)}
                   placeholder="Kastanienallee 42"
-                  className="w-full px-3 py-2 text-xs rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#121c17] outline-none"
+                  className="w-full min-h-[44px] h-11 px-3 py-2 text-sm rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#121c17] outline-none"
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {/* City / Postal / Apt: Single column on mobile, 3 columns from 768px (Section 8) */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
                   <label className="text-xs font-semibold text-gray-700 dark:text-gray-300 block mb-1">
                     Apartment / Suite
@@ -327,7 +329,7 @@ export default function CheckoutPage() {
                     value={apartment}
                     onChange={(e) => setApartment(e.target.value)}
                     placeholder="Apt 4B"
-                    className="w-full px-3 py-2 text-xs rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#121c17] outline-none"
+                    className="w-full min-h-[44px] h-11 px-3 py-2 text-sm rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#121c17] outline-none"
                   />
                 </div>
                 <div>
@@ -340,7 +342,7 @@ export default function CheckoutPage() {
                     value={postalCode}
                     onChange={(e) => setPostalCode(e.target.value)}
                     placeholder="10119"
-                    className="w-full px-3 py-2 text-xs rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#121c17] outline-none"
+                    className="w-full min-h-[44px] h-11 px-3 py-2 text-sm rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#121c17] outline-none"
                   />
                 </div>
                 <div>
@@ -353,7 +355,7 @@ export default function CheckoutPage() {
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
                     placeholder="Berlin"
-                    className="w-full px-3 py-2 text-xs rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#121c17] outline-none"
+                    className="w-full min-h-[44px] h-11 px-3 py-2 text-sm rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#121c17] outline-none"
                   />
                 </div>
               </div>
@@ -367,7 +369,7 @@ export default function CheckoutPage() {
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="+49 30 1234567"
-                  className="w-full px-3 py-2 text-xs rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#121c17] outline-none"
+                  className="w-full min-h-[44px] h-11 px-3 py-2 text-sm rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#121c17] outline-none"
                 />
               </div>
             </div>
